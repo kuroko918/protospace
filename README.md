@@ -4,7 +4,6 @@
 users
 prototypes
 images
-tags
 prototypes_tags
 comments
 likes
@@ -48,6 +47,7 @@ has_many tags, through: :prototypes_tags
 id (integer)
 image (string)
 prototype_id (integer)
+status (integer)
 
 アソシエーション
 belongs_to prototype
@@ -80,20 +80,3 @@ belongs_to user
            prototype
 
 => 9のlike機能のときに導入
-
-
-**Tagsテーブル**
-id (integer)
-title (string)
-
-アソシエーション
-has_many prototypes, through: :taggable
-​
-=>11のタグ機能のときに導入
-
-
-**taggableテーブル(中間テーブル)**
-tag_id (integer)
-proyotype_id (integer)
-
-=> 11のタグ機能追加のときに導入
