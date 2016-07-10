@@ -3,13 +3,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    set_user
   end
 
   def update
-    @user = User.find(params[:id])
+    set_user
     @user.update(update_params)
     redirect_to :root
+  end
+
+  private
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def update_params
