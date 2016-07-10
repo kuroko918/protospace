@@ -2,8 +2,7 @@
   %header.user-nav
     .media
       .media-left
-        %a{href: "#"}
-          %img.media-object{alt: "64x64", style: "width: 64px; height: 64px;", src: @user.avatar}/
+        = image_tag(@user.avatar, size: "64x64", class: "media-object")
       .media-body
         %h4#top-aligned-media.media-heading
           Top aligned media
