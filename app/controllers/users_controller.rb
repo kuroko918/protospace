@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def edit
+    set_user
   end
 
   def show
