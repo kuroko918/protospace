@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-  end
-
   def edit
   end
 
@@ -10,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(update_params)
+    @user = User.find(params[:id])
+    @user.update(update_params)
     redirect_to :root
   end
 
