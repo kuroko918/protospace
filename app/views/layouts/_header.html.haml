@@ -15,17 +15,17 @@
               %span.caret
             %ul.dropdown-menu{role: "menu"}
               %li
-                = link_to "My page",user_path(current_user)
+                = link_to "My page", user_path(current_user)
               %li
-                = link_to "Protoofile Edit",edit_user_path(current_user)
+                = link_to "Protoofile Edit", edit_user_path(current_user)
               %li
-                = link_to "Logout",destroy_user_session_path,method: 'delete'
+                = link_to "Logout", destroy_user_session_path, method: 'delete'
           %li
             .btn.btn-primary.navbar-btn
-              = link_to "New Proto", '/proto/new'
+              = link_to "New Proto", new_prototype_path
 
       - else
         %ul.nav.navbar-nav.navbar-right
           %li
             .btn.btn-primary.navbar-btn
-              = link_to "Get Started", '/users/sign_in'
+              = link_to "Get Started", new_user_session_path
