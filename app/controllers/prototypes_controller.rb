@@ -18,4 +18,15 @@ class PrototypesController < ApplicationController
       redirect_to new_prototype_path
     end
   end
+
+  private
+
+  def create_params
+    params.require(:prototype).permit(
+      :title,
+      :catch_copy,
+      :concept,
+      images_attributes: [:image, :status]
+      ).merge(user_id: current_user.id)
+  end
 end
