@@ -13,9 +13,9 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(create_params)
     if @prototype.save
-      redirect_to root_path
+      redirect_to root_path, flash: {notice: 'exactly saved'}
     else
-      redirect_to new_prototype_path
+      redirect_to new_prototype_path, flash: {notice: 'please post image'}
     end
   end
 

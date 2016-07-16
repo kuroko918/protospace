@@ -1,3 +1,9 @@
+- if flash[:notice]
+  .alert.alert-danger
+    = flash[:notice]
+- if flash[:alart]
+  .alert.alert-danger
+    = flash[:alart]
 .container.proto-new
   = form_for @prototype do |f|
     .col-md-8.col-md-offset-2
