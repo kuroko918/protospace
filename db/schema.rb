@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20160714050111) do
     t.datetime "updated_at"
   end
 
+  add_index "images", ["prototype_id"], name: "index_images_on_prototype_id", using: :btree
+
   create_table "prototypes", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.string   "catch_copy", limit: 255
@@ -29,6 +31,8 @@ ActiveRecord::Schema.define(version: 20160714050111) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -53,4 +57,6 @@ ActiveRecord::Schema.define(version: 20160714050111) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "images", "prototypes"
+  add_foreign_key "prototypes", "users"
 end
