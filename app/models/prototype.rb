@@ -9,4 +9,12 @@ class Prototype < ActiveRecord::Base
   def reject_images(attributed)
     attributed['image'].blank?
   end
+
+  def main_image
+    images.main[0].image
+  end
+
+  def all_sub_image
+    images.sub
+  end
 end
