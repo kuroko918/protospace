@@ -3,6 +3,7 @@ class UsersController < ApplicationController
  before_action :authenticate_user!
 
   def show
+    @prototypes = @user.prototypes
   end
 
   def edit
