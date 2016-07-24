@@ -32,7 +32,7 @@
               .proto-user
                 = link_to "by #{prototype.user.name}", user_path(current_user)
               .proto-posted
-                = prototype.created_at
+                = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
               %li
                 %a{href: "#", class: "btn btn-default"} iPad
