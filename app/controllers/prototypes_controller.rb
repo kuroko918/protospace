@@ -23,6 +23,22 @@ class PrototypesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @prototype.update(update_params)
+      redirect_to root_path, notice: 'Updated Successfully'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @prototype.destroy if @prototype.user_id == current_user.id
+    redirect_to root_path, notice: 'Deleted Successfully'
+  end
+
   private
 
   def set_prototype
@@ -36,5 +52,14 @@ class PrototypesController < ApplicationController
       :concept,
       images_attributes: [:image, :status]
       ).merge(user_id: current_user.id)
+  end
+
+  def update_params
+    params.require(:prototype).permit(
+      :title,
+      :catch_copy,
+      :concept,
+      images_attributes: [:image, :status]
+      )
   end
 end
