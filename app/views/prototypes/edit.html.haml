@@ -14,23 +14,24 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :images do |images_form|
+            = f.fields_for :images, @prototype.images.main[0] do |images_form|
               = images_form.file_field :image
               = images_form.hidden_field :status, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            = f.fields_for :images do |images_form|
-              %li.list-group-item.col-md-4
-                .image-upload
+            %li.list-group-item.col-md-4
+              .image-upload
+                = f.fields_for :images, @prototype.images.sub[0] do |images_form|
                   = images_form.file_field :image
                   = images_form.hidden_field :status, value: "sub"
-              %li.list-group-item.col-md-4
-                .image-upload
+            %li.list-group-item.col-md-4
+              .image-upload
+                = f.fields_for :images, @prototype.images.sub[1] do |images_form|
                   = images_form.file_field :image
                   = images_form.hidden_field :status, value: "sub"
-              %li.list-group-item.col-md-4
-                .image-upload-plus
-                  %span +
+            %li.list-group-item.col-md-4
+              .image-upload-plus
+                %span +
       .row.proto-description
         .col-md-12
           = f.text_field :catch_copy, placeholder: "Catch Copy"
