@@ -61,7 +61,7 @@ class PrototypesController < ApplicationController
       :title,
       :catch_copy,
       :concept,
-      images_attributes: [:image, :status]
+      images_attributes: [:id, :image, :status]
       )
   end
 end
