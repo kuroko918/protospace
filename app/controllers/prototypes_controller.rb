@@ -40,6 +40,7 @@ class PrototypesController < ApplicationController
     if @prototype.destroy
       redirect_to root_path, notice: 'Deleted Successfully'
     else
+      render :show
     end
   end
 
