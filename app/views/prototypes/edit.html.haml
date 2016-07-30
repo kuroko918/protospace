@@ -19,16 +19,12 @@
               = images_form.hidden_field :status, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.fields_for :images, @prototype.images.sub[0] do |images_form|
-                  = images_form.file_field :image
-                  = images_form.hidden_field :status, value: "sub"
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.fields_for :images, @prototype.images.sub[1] do |images_form|
-                  = images_form.file_field :image
-                  = images_form.hidden_field :status, value: "sub"
+            - 2.times do |i|
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = f.fields_for :images, @sub_images[i] do |images_form|
+                    = images_form.file_field :image
+                    = images_form.hidden_field :status, value: "sub"
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +
