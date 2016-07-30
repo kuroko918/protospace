@@ -24,6 +24,8 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @main_image = @prototype.images.main[0]
+    @sub_images = @prototype.images.sub
   end
 
   def update
