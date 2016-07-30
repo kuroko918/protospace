@@ -14,7 +14,7 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :images, @prototype.images.main[0] do |images_form|
+            = f.fields_for :images, @main_image do |images_form|
               = images_form.file_field :image
               = images_form.hidden_field :status, value: "main"
         .col-md-12
