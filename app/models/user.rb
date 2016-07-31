@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :password, :name
 
   has_many :prototypes
+  has_many :likes, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 end

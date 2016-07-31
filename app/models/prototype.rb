@@ -1,6 +1,7 @@
 class Prototype < ActiveRecord::Base
   has_many :images, dependent: :destroy
   belongs_to :user
+  has_many :likes, dependent: :destroy
 
   accepts_nested_attributes_for :images, reject_if: :reject_images
 
