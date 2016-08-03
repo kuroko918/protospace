@@ -37,12 +37,12 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
   .row.proto-comments
-    %h4.col-md-12#js-comments_count
+    %h4.col-md-12
       Comments
-      %span.num
+      %span.num#js-comments-count
         (#{@prototype.comments.count})
     #comment_area.col-md-8
-      #js-comment_list
+      #js-comment-list
         = render partial: 'comments/comment', locals: { comments: @prototype.comments.includes(:user) }
     .col-md-8
       - if user_signed_in?
@@ -50,6 +50,6 @@
           %h4 Write a comment
           .row
             .form-group.col-md-10
-              = f.text_area :text, placeholder: "Your comments", rows: "3", class: "textarea form-control", id: "js-comment_text"
+              = f.text_area :text, placeholder: "Your comments", rows: "3", class: "textarea form-control", id: "js-comment-text"
             .form-group.col-md-2
               = f.submit 'Comment', class: "button btn btn-primary"
