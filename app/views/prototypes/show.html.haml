@@ -40,10 +40,10 @@
     %h4.col-md-12#js-comments_count
       Comments
       %span.num
-        (#{@comments.count})
+        (#{@prototype.comments.count})
     #comment_area.col-md-8
       #js-comment_list
-        = render partial: 'comments/comment', locals: { comments: @comments }
+        = render partial: 'comments/comment', locals: { comments: @prototype.comments.includes(:user) }
     .col-md-8
       - if user_signed_in?
         = form_for [@prototype, @comment], remote: true do |f|
