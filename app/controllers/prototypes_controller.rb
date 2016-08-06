@@ -8,7 +8,8 @@ class PrototypesController < ApplicationController
 
   def show
     @like = current_user.likes.find_by(prototype_id: params[:id]) if user_signed_in?
-    @comment = Comment.new(prototype_id: @prototype)
+    @comment = Comment.new
+    @comments = @prototype.comments.includes(:user)
   end
 
   def new

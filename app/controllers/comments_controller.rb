@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   def create
     @prototype = Prototype.find(params[:prototype_id])
     @prototype.comments.create(create_params)
+    @comments = @prototype.comments.includes(:user)
   end
 
   private

@@ -43,7 +43,7 @@
         (#{@prototype.comments.count})
     #comment_area.col-md-8
       #js-comment-list
-        = render partial: 'comments/comment', locals: { comments: @prototype.comments.includes(:user) }
+        = render partial: 'comments/comment', locals: { comments: @comments }
     .col-md-8
       - if user_signed_in?
         = form_for [@prototype, @comment], remote: true do |f|
