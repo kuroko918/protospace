@@ -1,0 +1,9 @@
+- comments.each do |comment|
+  .media
+    .media-left
+      = link_to image_tag("#{@prototype.user.avatar}", size: "64x64", class: "media-object"), user_path(current_user)
+    .media-body
+      %h4#top-aligned-media.media-heading
+        = comment.user.name
+      %p
+        = comment.text
