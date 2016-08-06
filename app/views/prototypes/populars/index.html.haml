@@ -6,11 +6,11 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
-          %a{href: "#"} Popular PROTO
-        %li{role: "presentation"}
-          %a{href: "#"} Newest PROTO
-      %button{type: "button", class: "btn btn-default col-lg-1"} View Tags
+        %li.active{ role: "presentation" }
+          = link_to "Popular PROTO", root_path
+        %li{ role: "presentation" }
+          = link_to "Newest PROTO", prototypes_newests_path
+      = button_to "View Tags", type: "button", class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row
@@ -18,7 +18,7 @@
       .col-sm-4.col-md-3.proto-content
         - if user_signed_in? && prototype.user == current_user
           .dropdown.drop_menu_location
-            = button_tag "Action", "aria-expanded" => "false", "data-toggle" => "dropdown", type: "button", id: "dropdownMenu", class: "btn btn-default dropdown-toggle"
+            = button_tag "Action", aria: { expanded: false }, data: { toggle: "dropdown" }, type: "button", id: "dropdownMenu", class: "btn btn-default dropdown-toggle"
             %ul.dropdown-menu
               %li
                 = link_to 'edit', edit_prototype_path(prototype), class: "dropdown"
@@ -31,32 +31,32 @@
               = prototype.title
             .proto-meta
               .proto-user
-                = link_to "by #{prototype.user.name}", user_path(current_user)
+                = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
               .proto-posted
                 = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
               %li
-                %a{href: "#", class: "btn btn-default"} iPad
+                %a{ href: "#", class: "btn btn-default" } iPad
               %li
-                %a{href: "#", class: "btn btn-default"} Wireframe
+                %a{ href: "#", class: "btn btn-default" } Wireframe
 
 .text-center
   %ul.pagination
     %li.disabled
-      %a{"aria-label" => "Previous", href: "#"}
-        %span{"aria-hidden" => "true"} «
+      %a{ "aria-label" => "Previous", href: "#" }
+        %span{ "aria-hidden" => "true" } «
     %li.active
-      %a{href: "#"}
+      %a{ href: "#" }
         1
         %span.sr-only (current)
     %li
-      %a{href: "#"} 2
+      %a{ href: "#" } 2
     %li
-      %a{href: "#"} 3
+      %a{ href: "#" } 3
     %li
-      %a{href: "#"} 4
+      %a{ href: "#" } 4
     %li
-      %a{href: "#"} 5
+      %a{ href: "#" } 5
     %li
-      %a{"aria-label": "Next", href: "#"}
-        %span{"aria-hidden": "true"} »
+      %a{ "aria-label": "Next", href: "#" }
+        %span{ "aria-hidden": "true" } »
