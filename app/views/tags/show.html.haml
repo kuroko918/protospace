@@ -1,0 +1,40 @@
+.jumbotron
+  .container.text-center
+    = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
+
+.filter-nav
+  .container
+    .row
+      %ul.nav.nav-pills.col-lg-11
+        %li.active{ role: "presentation" }
+          = link_to "Popular PROTO", root_path
+        %li{ role: "presentation" }
+          = link_to "Newest PROTO", prototypes_newests_path
+      = link_to "View Tags",tags_path , class: "btn btn-default col-lg-1"
+
+.container.proto-list
+  .row
+    - @prototypes.each do |prototype|
+      .col-sm-4.col-md-3.proto-content
+        - if user_signed_in? && prototype.user == current_user
+          .dropdown.drop_menu_location
+            = button_tag "Action", aria: { expanded: false }, data: { toggle: "dropdown" }, type: "button", id: "dropdownMenu", class: "btn btn-default dropdown-toggle"
+            %ul.dropdown-menu
+              %li
+                = link_to 'edit', edit_prototype_path(prototype), class: "dropdown"
+              %li
+                = link_to 'delete', prototype_path(prototype), method: :delete, class: "dropdown"
+        .thumbnail
+          = link_to image_tag(prototype.main_image), prototype_path(prototype)
+          .caption
+            %h3
+              = prototype.title
+            .proto-meta
+              .proto-user
+                = link_to "by #{prototype.user.name}", user_path(prototype.user_id)
+              .proto-posted
+                = prototype.created_at.strftime("%b %d")
+            %ul.proto-tag-list.list-inline
+              - prototype.tags.each do |tag|
+                %li
+                  = link_to tag.name ,tag_path(tag.name), class: "btn btn-default"
