@@ -55,7 +55,7 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       images_attributes: [:image, :status]
-      ).merge(user_id: current_user.id)
+      ).merge(user_id: current_user.id, tag_list: params[:prototype][:tag_list])
   end
 
   def update_params
@@ -64,6 +64,6 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       images_attributes: [:id, :image, :status]
-      )
+      ).merge(tag_list: params[:prototype][:tag_list])
   end
 end
