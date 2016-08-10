@@ -10,7 +10,7 @@
           = link_to "Popular PROTO", root_path
         %li{ role: "presentation" }
           = link_to "Newest PROTO", prototypes_newests_path
-      = link_to "View Tags",tags_path , class: "btn btn-default col-lg-1"
+      = link_to "View Tags",prototypes_tags_path , class: "btn btn-default col-lg-1"
 
 .container.proto-list
   .row
@@ -35,6 +35,4 @@
               .proto-posted
                 = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
-              - prototype.tags.each do |tag|
-                %li
-                  = link_to tag.name ,tag_path(tag.name), class: "btn btn-default"
+              = render partial: 'prototypes/tags/tag', locals: { prototype: prototype }

@@ -6,4 +6,4 @@
       %ul.proto-tag-list.list-inline
         - @tags.each do |tag|
           %li.col-md-4
-            = link_to tag ,tag_path(tag.name) , class: "btn btn-default"
+            = link_to tag ,prototypes_tag_path(tag.name) , class: "btn btn-default"
