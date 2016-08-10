@@ -218,6 +218,9 @@ body {
 
 
 .btn-default {
+  min-width: 360px;
+  padding: 20px;
+  text-align: left;
   border: 1px solid #eee;
   &:hover {
     border: 1px solid #eee;
@@ -600,4 +603,8 @@ body {
   top: 30px;
   left: 5px;
   display: inline-block;
+}
+
+.col-md-4 {
+  margin-bottom: 10px;
 }
