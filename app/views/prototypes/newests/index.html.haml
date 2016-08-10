@@ -34,7 +34,7 @@
               .proto-posted
                 = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
-              = render partial: 'tags/tag', locals: { prototype: prototype }
+              = render partial: 'prototypes/tags/tag', locals: { prototype: prototype }
 .text-center
   %ul.pagination
     %li.disabled
