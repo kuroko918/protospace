@@ -33,7 +33,7 @@
         .col-md-12
           %h4 Tag List
           .row
-            - @placeholders_name.each_with_index do |name, i|
+            - Settings.placeholders_name.each_with_index do |name, i|
               .col-md-3
                 = text_field_tag 'prototype[tag_list][]', "#{@prototype.tag_list[i]}", placeholder: name
       .row.text-center.proto-btn

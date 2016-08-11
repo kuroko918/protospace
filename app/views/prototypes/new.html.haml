@@ -36,7 +36,7 @@
         .col-md-12
           %h4 Tag List
           .row
-            - @placeholders_name.each do |name|
+            - Settings.placeholders_name.each do |name|
               .col-md-3
                 = text_field_tag 'prototype[tag_list][]', "", placeholder: name
       .row.text-center.proto-btn
