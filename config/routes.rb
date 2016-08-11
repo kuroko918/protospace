@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :prototypes do
     resources :newests, only: :index
     resources :populars, only: :index
+    resources :tags ,param: :tag_name , only: [:index, :show]
   end
 
   resources :prototypes, except: :index do

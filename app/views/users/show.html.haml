@@ -42,10 +42,7 @@
               .proto-posted
                 = prototype.created_at.strftime("%b %d")
             %ul.proto-tag-list.list-inline
-              %li
-                %a{href: "#", class: "btn btn-default"} iPad
-              %li
-                %a{href: "#", class: "btn btn-default"} Wireframe
+              = render partial: 'prototypes/tags/tag', locals: { prototype: prototype }
 
 .text-center
   %ul.pagination

@@ -601,3 +601,14 @@ body {
   left: 5px;
   display: inline-block;
 }
+
+.tags-list {
+  .col-md-4 {
+    margin-bottom: 10px;
+  }
+  .btn-default {
+    min-width: 360px;
+    padding: 20px;
+    text-align: left;
+  }
+}

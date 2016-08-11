@@ -36,11 +36,8 @@
         .col-md-12
           %h4 Tag List
           .row
-            .col-md-3
-              %input{type: "text", placeholder: "Web Design"}/
-            .col-md-3
-              %input{type: "text", placeholder: "UI"}/
-            .col-md-3
-              %input{type: "text", placeholder: "Application"}/
+            - Settings.placeholders_name.each do |name|
+              .col-md-3
+                = text_field_tag 'prototype[tag_list][]', "", placeholder: name
       .row.text-center.proto-btn
-        %button.btn.btn-lg.btn-primary.btn-block{type: "submit"} Publish
+        = f.submit "Publish", class: "btn btn-lg btn-primary btn-block"
