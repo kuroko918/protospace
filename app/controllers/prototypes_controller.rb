@@ -1,7 +1,6 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: :new
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
-  before_action :set_placeholder_name, only: [:new, :edit]
 
   def show
     @like = current_user.likes.find_by(prototype_id: params[:id]) if user_signed_in?
@@ -52,10 +51,6 @@ class PrototypesController < ApplicationController
 
   def set_tag_list
     params[:prototype][:tag_list]
-  end
-
-  def set_placeholder_name
-    @placeholders_name = ["Web Design", "UI", "Application"]
   end
 
   def create_params
