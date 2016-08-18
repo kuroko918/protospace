@@ -3,7 +3,7 @@ class UsersController < ApplicationController
  before_action :authenticate_user!
 
   def show
-    @prototypes = @user.prototypes.includes(:tags)
+    @prototypes = @user.prototypes.includes(:tags).page(params[:page])
   end
 
   def edit
