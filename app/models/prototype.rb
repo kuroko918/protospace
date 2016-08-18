@@ -10,6 +10,8 @@ class Prototype < ActiveRecord::Base
 
   validates_presence_of :title, :catch_copy, :concept
 
+  paginates_per 8
+
   def reject_images(attributed)
     attributed['image'].blank?
   end
