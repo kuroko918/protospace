@@ -6,14 +6,15 @@ CarrierWave.configure do |config|
       :region                 => Settings.aws.region
   }
 
-  config.fog_directory = 'protospace-iwamoto'
-  config.asset_host = 'https://s3.amazonaws.com/protospace-iwamoto'
-
   case Rails.env
     when 'production'
       config.storage = :fog
+        config.fog_directory = 'protospace-iwamoto'
+        config.asset_host = 'https://s3.amazonaws.com/protospace-iwamoto'
     when 'development'
       config.storage = :fog
+        config.fog_directory = 'protospace-iwamoto'
+        config.asset_host = 'https://s3.amazonaws.com/protospace-iwamoto'
     when 'test'
       config.storage = :file
   end
