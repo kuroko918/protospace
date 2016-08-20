@@ -9,12 +9,12 @@ CarrierWave.configure do |config|
   case Rails.env
     when 'production'
       config.storage = :fog
-        config.fog_directory = 'protospace-iwamoto'
-        config.asset_host = 'https://s3.amazonaws.com/protospace-iwamoto'
+      config.fog_directory = 'protospace-iwamoto'
+      config.asset_host = 'https://s3.amazonaws.com/protospace-iwamoto'
     when 'development'
       config.storage = :fog
-        config.fog_directory = 'protospace-iwamoto'
-        config.asset_host = 'https://s3.amazonaws.com/protospace-iwamoto'
+      config.fog_directory = 'protospace-iwamoto'
+      config.asset_host = 'https://s3.amazonaws.com/protospace-iwamoto'
     when 'test'
       config.storage = :file
   end
