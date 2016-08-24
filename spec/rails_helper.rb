@@ -17,4 +17,12 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
+
+  config.include FactoryGirl::Syntax::Methods
+
+  config.include ActionDispatch::TestProcess
+
+  FactoryGirl::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end
 end
