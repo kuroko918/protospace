@@ -69,7 +69,7 @@ describe Prototype do
 
   describe '#reject_sub_image' do
     it "doesn't save a record with nil content" do
-      image = build(:sub_image, image: nil)
+      image = build(:image, :sub_image, image: nil)
       image.valid?
       expect(image.errors[:image]).to include("can't be blank")
     end
