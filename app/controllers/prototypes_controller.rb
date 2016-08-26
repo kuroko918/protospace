@@ -18,7 +18,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path, notice: 'exactly saved'
     else
-      redirect_to new_prototype_path, alert: 'please post image'
+      render :new
     end
   end
 
