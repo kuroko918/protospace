@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!, only: :new
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def show
