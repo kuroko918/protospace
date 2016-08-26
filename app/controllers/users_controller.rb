@@ -10,8 +10,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(update_params)
-    redirect_to :root, notice: 'Profile updated successfully'
+    if @user.update(update_params)
+      redirect_to root_path, notice: 'Profile updated successfully'
+    else
+      render :edit
+    end
   end
 
   private
