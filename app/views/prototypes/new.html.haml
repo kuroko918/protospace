@@ -1,6 +1,9 @@
-- if flash[:alert]
+- if @prototype.errors.any?
   .alert.alert-danger
-    = flash[:alert]
+    %ul
+      - @prototype.errors.full_messages.each do |message|
+        %li
+          = message
 .container.proto-new
   = form_for @prototype do |f|
     .col-md-8.col-md-offset-2
