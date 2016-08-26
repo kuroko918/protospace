@@ -5,6 +5,12 @@ FactoryGirl.define do
     concept    { Faker::Lorem.sentence }
     user
 
+    trait :prototype_with_main_image do
+      after(:create) do |prototype|
+        create(:image, :main_image, prototype: prototype)
+      end
+    end
+
     trait :prototype_with_comments do
       transient do
         comments_count 1
