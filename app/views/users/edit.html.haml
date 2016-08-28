@@ -1,3 +1,9 @@
+- if @user.errors.any?
+  .alert.alert-danger
+    %ul
+      - @user.errors.full_messages.each do |message|
+        %li
+          = message
 .container.user-new.col-md-8.col-md-offset-2
   = form_for @user do |f|
     %header.row.user-nav.row
