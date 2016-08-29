@@ -55,6 +55,7 @@ group :test do
   gem "database_cleaner"
   gem "launchy"
   gem "poltergeist"
+  gem "selenium-webdriver"
 end
 
 gem 'haml-rails'
